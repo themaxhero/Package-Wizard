@@ -1,6 +1,13 @@
-# PackageWizard
+# Package Wizard
 
-To start your Phoenix server:
+## Introduction
+Package Wizard is a project made thinking about all the times I've tried to order something but all the shipping companies where unknown or I had some problem with them.
+
+My goal with package wizard is to provide a common api between shops and shipping companies to give the customer the real choice of who should carry their packages.
+
+## Running Locally
+
+To start the project:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
@@ -9,6 +16,12 @@ To start your Phoenix server:
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+
+
+## Technologies under the hood
+ - Phoenix Framework
+ - Phoenix LiveView
+ - Algae
 
 ## Learn more
 
