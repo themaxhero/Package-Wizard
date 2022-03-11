@@ -1,9 +1,9 @@
 # Package Wizard
 
 ## Introduction
-Package Wizard is a project made thinking about all the times I've tried to order something but all the shipping companies where unknown or I had some problem with them.
+Package Wizard is a project made thinking about all the times I've tried to order something but all the logistic companies where unknown or I had some problem with them.
 
-My goal with package wizard is to provide a common api between shops and shipping companies to give the customer the real choice of who should carry their packages.
+My goal with package wizard is to provide a common api between shops and logistic companies to give the customer the real choice of who should carry their packages.
 
 ## Running Locally
 
