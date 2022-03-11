@@ -1,0 +1,39 @@
+- Package:
+  - Label:
+      type: String
+      description: A Label for the customer identify their package.
+  - Tracking Code:
+      type: String
+      description: The code used by shipping companies to identify the package.
+  - Shipping Company:
+      type: Shipping Company
+      description: The shipping company that will deliver the package.
+  - Shop:
+      type: Shop
+      description: Shop where the order was made.
+  - Weight:
+      type: Nullable Decimal
+      description: Represents the weight of the package. (nullable because the shipping company could not have this value)
+  - Shipping Stage:
+      type: Atom
+      description: The current stage of the delivery process.
+  - Address:
+      type: object
+      fields:
+        - name: Recipient
+          type: String
+        - name: Street
+          type: String
+        - name: Neighbourhood
+          type: String
+        - name: Country
+          type: Enum
+        - name: State
+          type: String
+        - name: City
+          type: String
+        - name: Zip Code
+          type: String
+  - Shipping Price:
+      type: Decimal
+      description: The price for the services

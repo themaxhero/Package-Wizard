@@ -1,0 +1,136 @@
+openapi: 3.0.0
+info:
+  title: Package Wizard
+  description: Service to you to control how you want to receive your packages.
+  version: 0.1.9
+
+servers:
+  - url: https://api.packagewizard.com
+    description: Package Wizard's Production Server
+  - url: http://api.staging.packagewizard.com
+    description: Package Wizard's Staging Server
+
+components:
+  schemas:
+    package:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "144886d9-6fec-4057-872c-053e4b666336"
+        label:
+          type: string
+          nullable: false
+          description: A Label for the customer identify their package.
+          example: "Dukemon SH-Arts Figure"
+        tracking_code:
+          type: string
+          nullable: false
+          description: "The code used by shipping companies to identify the package."
+          example: "\"RA123456789CN\", \"1Z9999999999999999\" or any other."
+        invoice_code:
+          type: string
+          description: Invoice Number
+        shipping_company_id:
+          type: string
+          nullable: false
+          example: "144886d9-6fec-4057-872c-053e4b666336"
+          description: "ID of the Shipping company that will deliver the package."
+        shop_id:
+          type: string
+          nullable: false
+          example: "144886d9-6fec-4057-872c-053e4b666336"
+          description: "ID of the shop where the order was made."
+        weight:
+          type: number
+          nullable: true
+          example: 2.5
+          description: "The weight of the package (in Kilos)"
+        shipping_stage:
+          type: string
+          nullable: false
+          enum:
+            - "INVOICE_CREATED"
+            - "POSTED"
+            - "COLLECTED_BY_SHIPPING_COMPANY"
+            - "IN_TRANSPORT"
+            - "OUT_FOR_DELIVERY"
+            - "IN_ROUTE_TO_ADDRESS"
+        address:
+          type: object
+          properties:
+            recipient:
+              type: string
+              example: John von Neumann
+            street:
+              type: string
+              example: "Rua Abacate"
+            number:
+              type: integer
+              nullable: true
+              example: 2345
+            no_number:
+              type: boolean
+              nullable: false
+              default: false
+            neighbourhood:
+              type: string
+              example: "Jardim do Cleber"
+            country:
+              type: string
+              example: "Brazil"
+            zip_code:
+              type: string
+              example: "11334-345"
+        shipping_price:
+          type: string
+          description: The price for the shipping
+        price:
+          type: string
+          description: The price for the shipping with the Package Wizard's Fee
+        active:
+          type: boolean
+          description: Is this package currently active?
+
+    shop:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "144886d9-6fec-4057-872c-053e4b666336"
+        name:
+          type: string
+          example: "Kabum!"
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              country:
+                type: string
+                example: "BRAZIL"
+              document:
+                type: string
+                example: "05570714000159"
+    
+    shipping_company:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "144886d9-6fec-4057-872c-053e4b666336"
+            
+paths:
+  /name:
+    get:
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          
+
+
+security:
+  - token: []
+  - api-key: []
